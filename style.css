@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 600px;
+    gap: 50px;
+    z-index: 2;
+
+    & img {
+        width: 250px;
+    }
+
+    & nav {
+        & ul {
+            display: grid;
+            grid-template-columns: repeat(5, 100px);
+        }
+    }
+}
+
+section {
+    background-image: radial-gradient(rgb(179, 101, 1), #522801, rgb(27, 18, 1), black);
+    height: 100vh;
+    position: relative;
+
+    & .list {
+        width: 70vw;
+        height: 100%;
+        margin: auto;
+        position: relative;
+
+        & .item {
+            position: absolute;
+            inset: 0;
+
+            & .strato {
+                position: absolute;
+                top: 50%;
+                left: 10%;
+                transform: translateY(-50%);
+                width: 70%;
+
+                & img {
+                    width: 90%;
+                    transform: rotate(-30deg);
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-color: black;
+                    width: 100%;
+                    height: 100px;
+                    top: 150%;
+                    left: 50px;
+                    border: 50%;
+                    filter: blur(50px);
+                }
+            }
+
+            & .content {
+                padding-top: 180px;
+                position: absolute;
+                right: 100px;
+                width: 70%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                gap: 20px;
+
+                & .stratoinformation {
+                    font-weight: bold;
+                }
+
+                p {
+                    font-size: 40px;
+                    padding-top: 10px;
+                }
+
+                span {
+                    font-size: 15px;
+                    vertical-align: super;
+                }
+
+                & h2 {
+                    font-size: 25px;
+                    line-height: 1em;
+                    align-items: end;
+                }
+
+                & .descriptionstrato {
+                    color: rgb(255, 255, 255);
+                    font-size: 12px;
+                    text-align: justify;
+                    max-width: 400px;
+                }
+
+                & .comprar {
+                    border-radius: 30px;
+                    height: 35px;
+                    width: 120px;
+                    text-transform: uppercase;
+                    border: 2px solid #85fa00;
+                    background-color: #85fa00;
+                    color: black;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 200px;
+            width: 100%;
+            top: 50%;
+            border-top: 1px solid white;
+        }
+    }
+
+    .arrows {
+        width: 70vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25px);
+        display: flex;
+        justify-content: space-between;
+
+        & button:nth-child(1) {
+            & img {
+                transform: scale(-1);
+            }
+        }
+
+        & button {
+            top: 60%;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+
+            & img {
+                width: 30px;
+                margin-top: 4px;
+            }
+
+            &:hover {
+                background-color: #85fa00;
+            }
+        }
+    }
+
+    .indicators {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 200px;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 15px;
+
+        & .number {
+            font-size: 5em;
+        }
+
+        & ul {
+            display: flex;
+            gap: 10px;
+
+            & li {
+                width: 50px;
+                height: 5px;
+                background-color: #85fa00;
+                border-radius: 5px;
+                transition: 0.5s;
+            }
+
+            & .active {
+                background-color: white;
+            }
+        }
+    }
+}
+
+section {
+
+    & .list {
+
+        & .item {
+            transform: translateX(100vw);
+            transition: 0.5s;
+            opacity: 0;
+
+            & .strato {
+                & img {
+                    transform: rotate(0);
+                    transition: 0.5s;
+                    transition-delay: 0.3s;
+                }
+            }
+
+            & .content {
+
+                & .stratoinformation,
+                h2,
+                p,
+                span,
+                .descriptionstrato,
+                .comprar {
+                    transform: translateX(200px);
+                    transition: 0.7s;
+                    transition-delay: 0.3;
+                    opacity: 0;
+                }
+
+                h2 {
+                    transition-delay: 0.5s;
+                }
+
+                & .stratoinformation {
+                    transition-delay: 0.7s;
+                }
+
+                & .descriptionstrato {
+                    transition-delay: 0.9s;
+                }
+            }
+        }
+
+        & .active {
+            transform: translateX(0);
+            transition: 0.5s;
+            opacity: 1;
+
+            & .strato {
+                & img {
+                    transform: rotate(-20deg);
+                }
+            }
+
+
+            & .content {
+
+                & .stratoinformation,
+                h2,
+                p,
+                span,
+                .descriptionstrato,
+                .comprar {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}    
