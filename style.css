@@ -31,6 +31,7 @@ header {
         & ul {
             display: grid;
             grid-template-columns: repeat(5, 100px);
+            color: rgb(255, 255, 255);
         }
     }
 }
