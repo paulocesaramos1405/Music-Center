@@ -32,6 +32,10 @@ header {
             display: grid;
             grid-template-columns: repeat(5, 100px);
             color: rgb(255, 255, 255);
+            & a {
+                color: white;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
         }
     }
 }
